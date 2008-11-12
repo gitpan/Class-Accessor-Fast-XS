@@ -1,6 +1,20 @@
 #!perl
 use strict;
-use Test::More tests => 24;
+use warnings;
+
+use constant HAS_BEST_PRACTICE => eval "use Class::Accessor 0.25; 1;";
+
+use Test::More;
+unless ( HAS_BEST_PRACTICE ) {
+    plan skip_all =>
+        'This test requires Class::Accessor'
+        .' with support of follow_best_practice'
+        .' (0.25 or newer)';
+}
+else {
+    plan tests => 24;
+}
+
 
 for my $class (qw(Class::Accessor::Fast Class::Accessor::Fast::XS)) {
     require_ok($class);

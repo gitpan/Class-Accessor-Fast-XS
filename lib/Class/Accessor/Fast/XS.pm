@@ -9,9 +9,19 @@ This module is a XS based replacement for L<Class::Accessor::Fast>.
 Just replace Class::Accessor::Fast with Class::Accessor::Fast::XS and
 it should just work.
 
-=head1 SEE ALSO
+Read L<Class::Accessor::Fast> and L<Class::Accessor> for API docs and
+usage.
 
-L<Class::Accessor::Fast> and L<Class::Accessor>
+XS is about performance, but usually optimized accessors like
+L<Class::Accessor::Fast> and many other with similar optimizations
+give you enough performance to make accessors NOT a bottleneck.
+In a real applications switch from Class::Accessor::Fast to this
+module can give you 1-5% boost.
+
+Want to compare performance of different solutions?
+Use L<App::Benchmark::Accessors>, but do remember that these benchmarks
+don't take into account various properties and advances of different
+implementations.
 
 =cut
 
@@ -21,7 +31,7 @@ use strict;
 use warnings;
 use base qw(Class::Accessor::Fast);
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 use XSLoader;
 XSLoader::load( __PACKAGE__, $VERSION );
@@ -56,5 +66,28 @@ sub make_accessor {
     return \&{$sub};
 }
 
-
 1;
+
+=head1 CREDITS
+
+This code is heavily based on Steffen Mueller's L<Class::XSAccessor>.
+
+=head1 SEE ALSO
+
+There are enormous amount of different accessors generators with different
+properties, behavior and performance, here is list of some:
+
+L<accessors>, L<Class::Accessor>, L<Class::MethodMaker>, L<Class::XSAccessor>,
+L<Object::Accessor>...
+
+=head1 AUTHOR
+
+Ruslan Zakirov E<lt>Ruslan.Zakirov@gmail.comE<gt>
+
+=head1 LICENSE
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut
+
