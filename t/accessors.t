@@ -1,6 +1,6 @@
 #!perl
 use strict;
-use Test::More tests => 28;
+use Test::More tests => 30;
 
 for my $class (qw(Class::Accessor::Fast Class::Accessor::Fast::XS)) {
     require_ok($class);
@@ -71,4 +71,6 @@ for my $class (qw(Class::Accessor::Fast Class::Accessor::Fast::XS)) {
             'mk DESTROY accessor warning');
     };
 
+    # special case for bug #45594 @ rt.cpan.org
+    is $silly->new->static, undef, 'RO accessor without value should return undef';
 }

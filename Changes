@@ -1,3 +1,8 @@
+0.03 2009-04-30
+
+    * fix behaviour of read only accessor when value is not set.
+      Thanks to Slaven Rezic for bug report, patch and tests.
+
 0.02 2008-11-12
 
     * updated docs with:

@@ -1,14 +1,20 @@
 --- #YAML:1.0
-name:                Class-Accessor-Fast-XS
-version:             0.02
-abstract:            XS replacement for Class::Accessor::Fast
-license:             perl
-author:              
+name:               Class-Accessor-Fast-XS
+version:            0.03
+abstract:           XS replacement for Class::Accessor::Fast
+author:
     - Ruslan U. Zakirov <Ruslan.Zakirov@gmail.com>
-generated_by:        ExtUtils::MakeMaker version 6.44
-distribution_type:   module
-requires:     
-    Class::Accessor::Fast:         0
+license:            perl
+distribution_type:  module
+configure_requires:
+    ExtUtils::MakeMaker:  0
+requires:
+    Class::Accessor::Fast:  0
+no_index:
+    directory:
+        - t
+        - inc
+generated_by:       ExtUtils::MakeMaker version 6.48
 meta-spec:
-    url:     http://module-build.sourceforge.net/META-spec-v1.3.html
-    version: 1.3
+    url:      http://module-build.sourceforge.net/META-spec-v1.4.html
+    version:  1.4

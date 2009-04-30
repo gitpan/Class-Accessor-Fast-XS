@@ -25,7 +25,7 @@ _xs_ro_accessor(self, ...)
     if ( he = hv_fetch_ent((HV *)SvRV(self), readfrom.key, 0, readfrom.hash) )
         PUSHs(HeVAL(he));
     else
-        croak("couldn't store value in hash");
+        XSRETURN_UNDEF;
 
 void
 _xs_wo_accessor(self, ...)

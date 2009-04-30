@@ -31,7 +31,7 @@ use strict;
 use warnings;
 use base qw(Class::Accessor::Fast);
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 use XSLoader;
 XSLoader::load( __PACKAGE__, $VERSION );
